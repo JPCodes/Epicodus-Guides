@@ -11,7 +11,7 @@ This project serves as a quick reference guide for use by Epicodus students or a
 ## Setup/Installation Requirements
 
 * Click index.html to see the guide text
-* Don't index.html as an actual html file in a browser, the formatting will make you regret your life. Trust me.
+* Don't open index.html as an actual html file in a browser, the formatting will make you regret your life. Trust me.
 
 ## Support and contact details
 
