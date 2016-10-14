@@ -2,26 +2,32 @@
 <body>
 
 Atom Pair Setup
-- (Open Terminal)
-- touch .pairs
-- atom .pairs (create pairs and email sections)
+  - (Open Terminal)
+  - touch .pairs
+  - atom .pairs (create pairs and email sections)
   
 Solo Git Setup
-- git config --global user.name "Firstname Lastname"
-- git config --global user.email email@email.com
-- git about (displays current user(s))
+  - git config --global user.name "Firstname Lastname"
+  - git config --global user.email email@email.com
+  - git about (displays current user(s))
 
 
-Git Guide
- - Git init (starts tracking directory)
- - Git pair jr jp (adds authors to the git project)
- - Git add . (adds all files to watchlist)
- - Git status (to confirm directory is watched)
- - Git-pair-commit -m “Comment goes here” (to commit as a pair)
- - (Create Repository)
- - Git remote add jp url.com/ (Linking to repository, per person)
- - Git push jr master (pushes files to github, per person)
- - Git status (to confirm everything is up to date)
+Git Guide for Pairing
+   - Git init (starts tracking directory)
+   - Git pair jr jp (adds authors to the git project)
+   - Git add . (adds all files to watchlist)
+   - Git status (to confirm directory is watched)
+   - Git-pair-commit -m “Comment goes here” (to commit as a pair)
+   - (Create Repository)
+   - Git remote add jp url.com/ (Linking to repository, per person)
+   - Git push jr master (pushes files to github, per person)
+   - Git status (to confirm everything is up to date)
+  
+Git Commands for Soloing
+  - git add .
+  - git commit -m "Comment goes here" (to commit solo)
+  - git remote add origin https://github.com/user/repo.git
+  - git push origin master
   
  Git Branching
  - git branch gh-pages (gh-pages can be any name)
@@ -29,14 +35,14 @@ Git Guide
  - git push jp gh-pages (per person, pushes to branch)
   
  Troubleshooting-related Commands
- - git branch (displays branches, star denotes current branch)
- - pwd (verify proper location)
+  - git branch (displays branches, star denotes current branch)
+  - pwd (verify proper location)
   
- Erase Git Credentials
+ Erase Git Credentials (Error 403 Access Denied fix)
  - git credential-osxkeychain erase
  host=github.com
  protocol=https
- (press return)
+ (press return twice)
   
  Wrong Git Repo
   - rm -rf .git (deletes git settings)
