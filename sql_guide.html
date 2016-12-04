@@ -1,0 +1,19 @@
+<html>
+<body>
+
+  Starting a project with a DB (Terminal)
+  - psql (Terminal)
+  - CREATE DAATABASE db_name ( <- Create a database with the name of your choice)
+  - CREATE TABLE table_name (id serial PRIMARY KEY, parameter varchar) (( <- Create your tables ))
+  - CREATE DATABASE db_name_test WITH TEMPLATE db_name (Create a test version of this DB for your specs)
+  Next (app.rb)
+  - require('pg') ((In your app.rb))
+    - DB = PG.connect({:dbname => "db_name"}) ((Link your app.rb to a your DB))
+  
+  Notes
+  - When you add a new column to your DB, delete your test DB and remake it with the same Schema
+  - Use a spec_helper.rb file that will have repeated code like the code that deletes the test database each spec run
+    - require('spec_helper') ((In your app.rb))
+
+</body>
+</html>
