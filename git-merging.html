@@ -2,10 +2,16 @@
 <body>
 
 Workflow:
- - Pull the master to your current branch
- - Resolve conflicts in Atom
- - Add/Commit/Push your branch to Github
+ - Add/Commit/Push your working branch to Github
+ - $ git checkout master
+ - Pull the master from github to your local master: $ git pull jp master
+ - Resolve conflicts in Atom, if any
+ - $ git checkout jp-cb
  - $ git merge master
+ - Resolve conflicts in Atom, if any
+ - Add/Commit/Push your working branch to Github
+ - $ git checkout master
+ - $ git merge jp-cb
  - $ git push jp master
 
 </body>
