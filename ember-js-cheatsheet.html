@@ -1,5 +1,25 @@
 <html>
 <body>
+  Key:
+  Display == Template == Views
+  Behavior == JS File || Route Handler (Note: JS File has a dash[-], while a Route Handler JS file will not)
+  
+  Generating Routes and Templates:
+  - $ ember generate route about
+    - Creates: app/routes/about.js (route handler)
+    - Creates: app/templates/about.hbs (template)
+  
+  Generating Components and Templates:
+  - $ ember generate component rental-tile
+    - Creates: app/components/rental-tile.js (js file for component; behavior)
+    - Creates: app/templates/components/rental-tile.hbs (component; display)
+  
+  Components:
+  - Component consists of two parts (Display and Behavior): A Handlebars template that defines the display (app/templates/components/rental-tile.hbs) A JavaScript source file that defines how it will behave (app/components/rental-tile.js).
+  - Components are isolated and do not automatically have access to models and other information within context of the route in which they are called. Anything a component needs from its surroundings must be passed in manually (from its behavior file).
+  - Example Format in a Component's display file {{component-file rental-in-component=rental-from-template}}
+  - Template File Example {{rental-tile rental-in-component=rental-from-template}}
+
 
 
 
