@@ -4,7 +4,7 @@
 Installation:
 - npm install typescript -g (tsc -v)
 - apm install atom-typescript
-- nom install -g angular-cli
+- npm install -g angular-cli
 
 Commands:
 - ng new project-name (creates a project)
@@ -20,7 +20,8 @@ Create/Add Component Workflow (Be in app folder or deeper):
 - ng g cl classname
 - import { Classname } from '../classname'; (Import this wherever it is needed; from 'whichever directory it's in')
  
-Data passage example:
+Data passage example (Recipe-list, recipe-detail, recipe):
+- Overview: The recipe-list has a recipe that we want to display on recipe-detail. recipe-detail will be displayed on recipe.
 - Recipe constructed in the recipe-list component
   - Displayed on recipe.html, gives information through output emitter (Property binding, emits with click event)
 - Recipe information called in recipe-detail component (@Input() takes any information emitted)
