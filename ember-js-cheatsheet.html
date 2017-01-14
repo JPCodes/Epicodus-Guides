@@ -26,7 +26,14 @@
   - Example Format in a Component's display file {{component-file rental-in-component=rental-from-template}}
   - Template File Example {{#each model as |rental-from-template|}}{{rental-tile rental-in-component=rental-from-template}}
 
-
+  Data Down, Actions Up (Route is up)
+  - Route -> Template -> Component
+  - Index -> Index hbs -> Rental-Tile
+  - rentals -> rental=rental -> rental
+    - index js route finds all rentals, {{rental-tile rental=rental}} passes it to componenet, rental-tile now knows rental
+  - Route <- Template <- Component
+  - Index -> Index hbs -> Rental-Tile
+    -  Route executes the call <- Template recieves call <- Component calls destroyRental
 
 
 </body>
