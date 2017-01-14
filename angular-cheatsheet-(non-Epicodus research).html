@@ -19,6 +19,14 @@ Create/Add Component Workflow (Be in app folder or deeper):
  Create a Class:
 - ng g cl classname
 - import { Classname } from '../classname'; (Import this wherever it is needed; from 'whichever directory it's in')
+ 
+Data passage example:
+- Recipe constructed in the recipe-list component
+  - Displayed on recipe.html, gives information through output emitter (Property binding, emits with click event)
+- Recipe information called in recipe-detail component (@Input() takes any information emitted)
+  - Also displayed on recipe.html so it has access to the information emitted
+  - Formats information on its frontend, which is displayed on recipes template
+- Recipe constructed displayed on recipes template (which is displayed on the app template)
 
 </body>
 </html>
