@@ -1,15 +1,24 @@
 <html>
 <body>
+ 
+Installation:
+- npm install typescript -g (tsc -v)
+- apm install atom-typescript
+- nom install -g angular-cli
 
 Commands:
 - ng new project-name (creates a project)
 - ng new project-name --prefix ab (creates a project but prefixes templates with 'ab' or anything else you choose)
  
-Create/Add Component Workflow:
+Create/Add Component Workflow (Be in app folder or deeper):
 - ng g c componentname --flat (--flat (optional) flag will disallow this component from being inside its own folder)
 - In app.component.ts add:
   - import { ComponentnameComponent } from './componentname.component';
 - In your template (.html) file add component selector tags found in componentname.component.ts
+ 
+ Create a Class:
+- ng g cl classname
+- import { Classname } from '../classname'; (Import this wherever it is needed; from 'whichever directory it's in')
 
 </body>
 </html>
