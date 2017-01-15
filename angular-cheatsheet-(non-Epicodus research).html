@@ -28,6 +28,19 @@ Data passage example (Recipe-list, recipe-detail, recipe):
   - Also displayed on recipe.html so it has access to the information emitted
   - Formats information on its frontend, which is displayed on recipes template
 - Recipe constructed displayed on recipes template (which is displayed on the app template)
+ 
+ Create a Directive:
+ - ng g directive directivename
+ 
+ Directives:
+ - Instructions: Tells Angular 2 what to do ; Components <component-name></component-name>
+ - <li *ngFor="let item of items">{{ item }}</li> (Tells Angular 2 to Loop)
+ - <my-component></my-component> (Tells Angular 2 to render a component to a page)
+ - Attribute Directives: Interact with Element applied to
+  - ngClass ([ngClass] brackets are used for property binding)
+ - Structural Directives: Interact with DOM
+  - *ngIf
+ 
 
 </body>
 </html>
