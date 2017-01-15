@@ -51,6 +51,11 @@ Data passage example (Recipe-list, recipe-detail, recipe):
   B. Dependency Injection:
   - Giving an instance of a service to components, directives, classes, etc.
    - eg. constructor(argument: Service) {} ...and in the component (or a higher level) -> provide: [Service]
+  - Step by step injection:
+    - Create service to be injected
+    - Import it to component where it's to be injected and add it to a constructor with a private variable of type ServiceName
+    - Import and provide to appmodule.ts providers (the parent component)
+    - All linked up, now do stuff with it
 
 </body>
 </html>
