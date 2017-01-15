@@ -43,6 +43,14 @@ Data passage example (Recipe-list, recipe-detail, recipe):
 
  Debug:
  - Chrome Debugger, sourcemaps, Augury
+ 
+ Services:
+ - Provide, Store, Interact with Data (eg interact with a DB on a server)
+ - Provide communications for components and classes
+ - Access to business logic from various locations within your app (DRY)
+  B. Dependency Injection:
+  - Giving an instance of a service to components, directives, classes, etc.
+   - eg. constructor(argument: Service) {} ...and in the component (or a higher level) -> provide: [Service]
 
 </body>
 </html>
