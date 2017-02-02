@@ -1,0 +1,22 @@
+<html>
+<body>
+
+Sample workflow:
+- DB creation, migration (modelname db)
+- create model < ActiveRecord::Base (in app/models/modelname.rb)
+- create spec (in spec/models/modelname_spec.rb)
+- create route (in config/routes.rb)
+  - Rails.application.routes.draw do
+     resources :modelnames (<- plural)
+    end
+- create controller (in app/controllers/modelnames_controller.rb) (<- plural)
+   - class ModelnamesController < ApplicationController (<- plural, caps camel)
+      def index
+        @modelnames = Modelname.all (<- plural; caps)
+        render :index
+      end
+    end
+
+
+</body>
+</html>
