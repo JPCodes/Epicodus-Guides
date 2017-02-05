@@ -1,5 +1,23 @@
 <html>
 <body>
+  
+ Notes for new project creation:
+ - Gemfile addition:
+  - group :development, :test do
+        gem 'byebug', platform: :mri
+        gem 'rspec-rails'
+        gem 'launchy'
+        gem 'pry'
+        gem 'shoulda-matchers'
+     end
+ - rails generate rspec:install (Terminal)
+ - rails_helper.rb addition:
+  - Shoulda::Matchers.configure do |config|
+      config.integrate do |with|
+        with.test_framework :rspec
+        with.library :rails
+      end
+    end
 
 Sample workflow:
 - DB creation, migration (modelname db)
