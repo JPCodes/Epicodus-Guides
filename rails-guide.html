@@ -23,6 +23,15 @@
       end
     end
 - mkdir spec/features (Terminal)
+  
+ Bootstrap Setup:
+ - gem 'bootstrap-sass', '~> 3.3.6' (Gemfile, then bundle)
+ -  app.scss:
+    @import "bootstrap-sprockets";
+    @import "bootstrap";
+ - app.js, after jquery, jquery_ujs:
+  //= require bootstrap-sprockets
+ - Restart the server
 
 Sample workflow:
 - DB creation, migration (modelname db)
