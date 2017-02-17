@@ -78,5 +78,43 @@ https://github.com/plataformatec/devise
 
 FactoryGirl:
 https://www.sitepoint.com/learn-the-first-best-practices-for-rails-and-rspec/
+  
+Paperclip:
+- Gemfile:
+  - gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+- Example Model:
+  class User < ActiveRecord::Base
+    has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  end
+- Example Migration:
+  - rails generate paperclip user avatar
+  class AddAvatarColumnsToUsers < ActiveRecord::Migration
+    def up
+      add_attachment :users, :avatar
+    end
+
+    def down
+      remove_attachment :users, :avatar
+    end
+  end
+- Example Views (upload_avatar.html.erb):
+  <%= render 'layouts/errors', object: @user %>
+
+  <%= form_for(@user, multipart: true) do |f| %>
+    <div class="field">
+      <%= f.label :avatar %>
+      <%= f.file_field :avatar, required: true %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Upload' %>
+    </div>
+  <% end %>
+- Example Custom Route:
+  - get 'upload' => 'users#upload_avatar'
+- Remember:
+  - params.require(:user).permit(:avatar)
+                                                         
+
 </body>
 </html>
