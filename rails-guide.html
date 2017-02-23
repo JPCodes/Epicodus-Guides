@@ -172,7 +172,34 @@ Controller Action - index or show
         <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
         <%= link_to "Vote", :downvote => question.id %>
         <span class="vote-number"> <%= question.get_dislikes.size %></span>
-                                                         
+          
+PhantomJS Setup
+- Create file spec/support/shared_db_conntection.rb
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+ 
+- rails_helper.rb addition (sindie rspec.configure do |config| block)
+          config.include Warden::Test::Helpers
+- At the top (rails helper):
+require 'spec_helper'
+require 'rspec/rails'
+require 'capybara/rails'
+require 'launchy'
+require 'capybara/poltergeist'
+require 'support/factory_girl'
+require 'support/shared_db_connection'
+          
+- Spec_helper.rb additon (at the top):
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 </body>
 </html>
