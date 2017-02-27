@@ -209,6 +209,14 @@ Capybara.javascript_driver = :poltergeist
   - ngrok http 3000
     - open web interface or tunnel to server
  https://ngrok.com/docs
-
+ - add ngrok url (https://www.twilio.com/console/phone-numbers/incoming)
+  - routes   
+  get '/response' => 'messages#reply'
+  post '/response' => 'messages#reply'
+  - controller
+  def reply
+    @output = {"Message" => "Response from Rails"}
+    render :xml => @output.to_xml(:root => 'Response')
+  end
 </body>
 </html>
