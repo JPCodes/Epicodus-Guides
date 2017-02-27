@@ -201,6 +201,13 @@ require 'support/shared_db_connection'
 - Spec_helper.rb additon (at the top):
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
+          
+- ngrok
+  - brew cask install ngrok
+          setup auth token and secure tunnel (to 3000, like the rails server)
+          - $ ngrok authtoken <token here>
+  - ngrok http 3000
+    - open web interface or tunnel to server
 
 </body>
 </html>
