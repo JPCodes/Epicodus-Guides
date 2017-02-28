@@ -28,6 +28,13 @@ Git Guide for Pairing
   - Git push jr master (pushes files to github, per person)
   - Git status (to confirm everything is up to date)
   
+Reset last Git Commit without Deleting anything
+  - git commit -m "Something that wasn't supposed to be committed" (Example of your bad commit)
+  - git reset HEAD~
+  - (Edit files)
+  - git commit -m "Fixed it" (Example of your good commit)
+  http://stackoverflow.com/questions/927358/how-to-undo-last-commits-in-git
+  
  Git Branching
  - git branch gh-pages (gh-pages can be any name)
  - git checkout gh-pages (switches to branch)
