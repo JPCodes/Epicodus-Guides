@@ -271,10 +271,13 @@ Sidekiq Heroku Install
 - Procfile (create) addition:
  - web: bin/rails server -p $PORT -e $RAILS_ENV
  - worker: bundle exec sidekiq -e production
- - $ heroku addons:create redistogo (install the addon)
+ - $ heroku addons:create redistogo:nano (install the addon)
+ - heroku config:set REDIS_PROVIDER=REDISTOGO_URL
+ - heroku ps:scale worker=1
  - Set Heroku Config Files:
    - REDIS_PROVIDER = REDISTOGO_URL
    - REDISTOGO_URL = <Generated for you>
    - Any other ENV vars you used
+ -
 </body>
 </html>
