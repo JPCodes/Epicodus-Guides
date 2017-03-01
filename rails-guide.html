@@ -218,5 +218,63 @@ Capybara.javascript_driver = :poltergeist
     @output = {"Message" => "Response from Rails"}
     render :xml => @output.to_xml(:root => 'Response')
   end
+          
+Sidekiq
+- Gemfile
+ gem 'sidekiq'
+ gem 'slim', ">= 1.3.0" #pseudo language
+ gem 'sinatra', :require => false #interface
+ gem 'sidekiq-scheduler'
+- rails g sidekiq:worker Hard # will create app/workers/hard_worker.rb
+- app/workers/hard_worker.rb addition:
+require 'sidekiq-scheduler'
+class HardWorker
+  include Sidekiq::Worker
+
+  def perform(*args)
+    # Do something
+  end
+
+  private
+
+  def boot_twilio
+    # etc
+  end
+end
+- Routes.rb addition:
+require 'sidekiq/web'
+require 'sidekiq-scheduler'
+require 'sidekiq-scheduler/web'
+ mount Sidekiq::Web, at: '/sidekiq' #(inside the DO, this is for the dashboard url/sidekiq)
+- config/sidekiq.yml (create) addition:
+ :schedule:
+   hard_worker:
+     every: 1m
+     class: HardWorker
+- Install Redis Locally:
+  - brew install redis
+- $ redis-server (start server)
+- $ sidekiq (to run locally)
+
+Sidekiq Heroku Install
+- config/sidekiq.ym addition:
+  - :concurrency: 2 (at the top)
+- config/initializers/sidekiq.rb (create) addition:
+ Sidekiq.configure_server do |config|
+   config.redis = { :url => ENV["REDISTOGO_URL"]} #grabs it from Heroku env vars
+   # config.redis = { :url => 'redis://localhost:6379'} #(I dont know what this is)
+ end
+ Sidekiq.configure_client do |config|
+   config.redis = { :url => ENV["REDISTOGO_URL"] }
+   # config.redis = { :url => 'redis://localhost:6379' }
+ end
+- Procfile (create) addition:
+ - web: bin/rails server -p $PORT -e $RAILS_ENV
+ - worker: bundle exec sidekiq -e production
+ - $ heroku addons:create redistogo (install the addon)
+ - Set Heroku Config Files:
+   - REDIS_PROVIDER = REDISTOGO_URL
+   - REDISTOGO_URL = <Generated for you>
+   - Any other ENV vars you used
 </body>
 </html>
