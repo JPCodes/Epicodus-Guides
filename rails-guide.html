@@ -37,6 +37,11 @@ SimpleCov.start
  - app.js, after jquery, jquery_ujs:
   //= require bootstrap-sprockets
  - Restart the server
+  
+Generators don't create assets and helpers:
+- config/application.rb
+config.generators.assets = false
+config.generators.helper = false
 
 Sample workflow:
 - DB creation, migration (modelname db)
@@ -278,6 +283,5 @@ Sidekiq Heroku Install
    - REDIS_PROVIDER = REDISTOGO_URL
    - REDISTOGO_URL = <Generated for you>
    - Any other ENV vars you used
- -
 </body>
 </html>
